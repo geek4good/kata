@@ -6,7 +6,6 @@ import (
 )
 
 func TestSolution(t *testing.T) {
-	euler1.Problem()
 	actual := euler1.Solution()
 	expected := 233168
 
