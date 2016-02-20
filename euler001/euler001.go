@@ -1,4 +1,4 @@
-package euler1
+package euler001
 
 func Problem() string {
 	return `

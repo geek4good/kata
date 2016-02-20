@@ -1,12 +1,12 @@
-package euler1_test
+package euler001_test
 
 import (
-	"github.com/geek4good/kata/euler1"
+	"github.com/geek4good/kata/euler001"
 	"testing"
 )
 
 func TestSolution(t *testing.T) {
-	actual := euler1.Solution()
+	actual := euler001.Solution()
 	expected := 233168
 
 	if actual != expected {
