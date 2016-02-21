@@ -14,25 +14,28 @@ What is the largest prime factor of the number 600851475143 ?
 
 func Solution() int {
 	product := 600851475143
-	primeFactors := primeFactors(product, []int{})
+	primeFactors := primeFactors(product)
 	return primeFactors[len(primeFactors)-1]
 }
 
-func primeFactors(product int, factors []int) []int {
+func primeFactors(product int) []int {
+	factors := []int{}
 	primes := []int{}
 	for i := 2; i <= product; i++ {
 		if isPrime(i, &primes) {
 			primes = append(primes, i)
 			for _, prime := range primes {
-				if product%prime == 0 {
+				for product%prime == 0 {
 					factors = append(factors, prime)
-					quotient := product / prime
-					return primeFactors(quotient, factors)
+					product /= prime
+					if product == 1 {
+						return factors
+					}
 				}
 			}
 		}
 	}
-	return factors
+	panic("Failed to find prime factors")
 }
 
 func isPrime(number int, primes *[]int) bool {
